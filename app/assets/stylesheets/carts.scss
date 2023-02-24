@@ -1,0 +1,29 @@
+// Place all the styles related to the carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.button {
+    color: #080707;
+    background: #d20707c4;
+    padding: 20px 0;
+    display: block;
+  }
+.table {
+    border: 1px solid black;
+    padding: 5px;
+    border-color: #0b0b0b;
+    border-collapse: none;
+  }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-bottom: 25px;
+  }  
+
+  .mg {
+    text-align: center;
+  } 

@@ -1,0 +1,23 @@
+<%= flash[:notice] %>
+<div class="outer_center"></br>
+    <div class="centerr">
+        <h1>Admin Login</h1>
+            
+        <%= form_with url:"/admin/login",method: :post do |form| %>    
+        <div class= "field">
+            <%= form.label :Username %>
+            <%= form.text_field :username %>
+        </div><br>
+
+        <div class= "field">
+            <%= form.label :Password %>
+            <%= form.password_field :password %>
+        </div><br>
+    
+        <div class= "actions">
+            <%= form.submit "Login" %>
+        </div>
+        <% end %>
+    
+    </div>
+</div>

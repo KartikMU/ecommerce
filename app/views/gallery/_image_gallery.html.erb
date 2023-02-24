@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>RightOnTime</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+
+  <body>
+    <header>
+      <!-- Header Start -->
+      <div class="header-area">
+        <div class="main-header header-sticky">
+          <div class="container-fluid">
+            <div class="menu-wrapper">
+              <div class="main-menu d-none d-lg-block">
+                <nav>                                                
+                  <ul id="navigation">  
+                    <li><a href="/home/index">Home</a></li>
+                    <li><a href="/users/sign_in">Login</a></li>
+                    <li><a href="/users/sign_up">Registration</a></li>
+                    <li><a href="/admin/login">Admin</a></li>
+                    <li><a href="/gallery/index">Gallery</a></li>   
+                  </ul>
+                </nav>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="slider-area ">
+      <div class="single-slider slider-height2 d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="hero-cap text-center">
+                <h2>Gallery</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      table {
+        border: 1px solid black;
+        padding: 5px;
+        border-color: #0b0b0b;
+        border-collapse: none;
+      }
+      button {
+        color: #080707;
+        background: #d20707c4;
+        padding: 20px 0;
+        display: block;
+      }
+      outer {
+      padding-left: 25%;
+      padding-right: 25%;
+      padding-bottom: 8%;
+      padding-top: 8% ;
+      }
+      cent {
+      padding: 5%;
+      border: 2px solid;
+      text-align: center;
+      background-color: #e90a06d5; 
+      }  
+    </style>
+    <table class="table">
+      <tr class="table">
+        <% count=0 %>
+        <% @image_gallery.each do |str|%>
+        <% if (count % 3) == 0%>
+      </tr>
+      <tr class="table" >
+        <% end %>
+        <% count+=1 %>
+        <td>
+          <% if str.files.attached? %>                        
+            <%= image_tag str.files.first, width: "100", height: "120",alt:"#"%>
+            <% end %><br />
+            Name : <%= str.name %><br />
+            Category : <%= str.category %><br/>
+            Description : <%= str.description%><br/>
+            Color :<%= str.color %><br />
+            Price : <%= str.price %>
+            <button class="button"><%= button_to 'Add to Cart', line_items_path(:store_id => str.id)%></button> 
+        </td>
+        <% end %>
+      </tr>
+    </table>
+    <%= form_for(:search,:url=>"/gallery/search") do |f| %>
+      Search <input type="text" name="search">
+      <button class="button"><input type="submit" value="Go"></button>
+    <% end %>
+    <!-- Footer Start-->
+    <footer>
+      <div class="footer-area footer-padding">
+        <div class="container">
+          <div class="row d-flex justify-content-between">
+            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+              <div class="single-footer-caption mb-50">
+                <div class="single-footer-caption mb-30">
+                  <div class="footer-logo">
+                    <a href="index.html"><img src="/assets/img/gallery/tyou1.png" width= "600 "alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+    </footer>
+  </body>
+</html>
